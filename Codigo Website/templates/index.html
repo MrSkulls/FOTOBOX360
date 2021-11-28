@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>FOTOBOX360</title>
+
+{% endblock %}
+
+{% block body %}
+<ul>
+    <li><a class="active" href="/main">Home</a></li>
+    <li><a href="/registarDispositivo">Registar Dispostivo</a></li>
+    <li><a href="/listarDispositivos">Meus Dispostivos</a></li>
+    <li style="padding-left: 73%;"><a href="/logout"><b>Logout</b></a></li>
+  </ul>
+        
+<div class="content">
+     
+   <span  style="font-size:xx-large;"> 
+        <h1 style="text-align: center; color:rgb(58, 0, 0);" class="p1">FOTOBOX 360</h1>
+        {% if device != "NONE" %}
+        <b style="padding-left: 38.5%;" >Quantas Fotografias Deseja?</b>
+        <b style="padding-left: 37%;" >Tem Selecionado o dispositivo: {{device}}</b>
+        
+    </span>
+     <div class="form" style="padding-left: 20%;">
+        
+        <form action="/main" method="POST">
+            <input type="number" min="1" max="9" name="numeroFotos" id="content" >
+            <input type="submit" value="PEDIR">
+        </form>
+        {% else %}
+            <b style="padding-left: 23%;" >Dirija-se a "Meus dispositivos" para selecionar o dispositivo desejado</b>
+        {% endif %}
+    </div>
+    
+</div>
+<div>
+{% if fotografias != NULL %} 
+    <div class="galeria" style="text-align: center;"> 
+        <hr>
+            <h1 style="color: white;" ><b>GALERIA</b></h1>
+        <hr>
+    </div>
+{% endif %}
+<div class="row">
+
+{% for fotos in fotografias %} 
+    <div class="imagens">
+
+        <p style="padding-left: 0%;"><b>Data: {{fotos[2]}}</b>
+        <a style="padding-left: 40%;" href="/delete/{{fotos[0]}}">
+            <button class="button2"><b>X</b></button>
+        </a></p>  
+        <img src="{{fotos[1]}}" id="{{fotos[0]}}" onclick="enlargeImg(this.id)" width="300" height="300"/> 
+
+       <P><a href="{{fotos[1]}}" download="{{fotos[0]}}">
+            <button class="button1" style="width: 80%;"><b>Download</b></button>
+        </a> </P>
+        
+        
+       
+
+    </div> 
+{%endfor%}
+</div> 
+ </div>
+<script>
+var firstClick;
+ function enlargeImg(clicked_id) {
+    img= document.getElementById(clicked_id);
+    
+       
+    if(firstClick == 0){
+        img.style.transform = "scale(2)";
+        img.style.transition = "transform 0.25s ease";
+        firstClick = 1;
+    }else{
+        img.style.transform = "scale(1)";
+        img.style.transition = "transform 0.25s ease";
+        firstClick = 0;
+    }
+
+    }
+
+</script>
+
+
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>FOTOBOX360</title>
+{% endblock %}
+
+{% block body %}
+{% with messages = get_flashed_messages() %}  
+         {% if messages %}  
+               {% for message in messages %}  
+                    <p>{{ message }}</p>  
+               {% endfor %}  
+         {% endif %}  
+      {% endwith %}  
+    <div class="content">
+        <span  style="font-size:xx-large;"> 
+             <h1 style="text-align: center; color:rgb(58, 0, 0); padding-top: 10%;" class="p1">FOTOBOX 360</h1>
+             <b style="padding-left: 43%; ">Faça o seu Login</b>
+         </span>
+          <div class="form" style="padding-left: 40%; padding-top: 1%;">
+             
+            <form action="/" method="POST">
+                 <p style="color:rgb(58, 0, 0);"><b>USERNAME</b></p>
+                 <input style="width: 33%;" type="text" name="username">
+                 <p style="color:rgb(58, 0, 0);"><b>PASSWORD</b></p>
+                 <input style="width: 33%;" type="password" name="password">
+                 <input type="submit" value="Entrar">      
+                 <p></p>
+            </form>
+
+            
+           
+          
+         
+    
+            <form  action="/registar">
+                <input type="submit" value="Registar">
+            </form> 
+            </div>      
+        </div>                  
+                
+                
+            
+
+</div>
+{% endblock %}

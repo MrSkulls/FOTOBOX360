@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>FOTOBOX360</title>
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <span  style="font-size:xx-large;"> 
+             <h1 style="text-align: center; color:rgb(58, 0, 0); padding-top: 10%;" class="p1">FOTOBOX 360</h1>
+             <b style="padding-left: 43%; ">Faça o seu Registo</b>
+         </span>
+          <div class="form" style="padding-left: 40%; padding-top: 1%;">
+             
+             <form action="/registar" method="POST">
+                 <p style="color:rgb(58, 0, 0);"><b>Nome</b></p>
+                 <input style="width: 33%;" type="text" name="nome">
+                 <p style="color:rgb(58, 0, 0);"><b>Username</b></p>
+                 <input style="width: 33%;" type="text" name="username">
+                 <p style="color:rgb(58, 0, 0);"><b>Email</b></p>
+                 <input style="width: 33%;" type="text" name="email">
+                 <p style="color:rgb(58, 0, 0);"><b>Password</b></p>
+                 <input style="width: 33%;" type="password" name="password">
+                 <p></p>
+                 <input type="submit" value="Criar Conta">
+             </form>
+           
+                 
+                        
+                
+                
+         </div>
+          
+         
+     </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>FOTOBOX360</title>
+{% endblock %}
+
+{% block body %}
+<ul>
+    <li><a href="/main">Home</a></li>
+    <li><a href="/registarDispositivo">Registar Dispostivo</a></li>
+    <li><a class="active"  href="/listarDispositivos">Meus Dispostivos</a></li>
+    <li style="padding-left: 73%;"><a href="/logout"><b>Logout</b></a></li>
+  </ul>
+
+{% if devices != NULL %} 
+<div style="padding-left: 35%; margin-top: 10%;">
+    {% if device != "NONE" %}
+    <span  style="font-size:x-large;"> 
+        <b>Tem Selecionado o dispositivo: {{device}}</b>
+    </span>
+    {% else %}
+    <span  style="font-size:x-large;"> 
+        <b>Nao tem nenhum dispositivo selecionado</b>
+    </span>
+            
+    {% endif %}
+ <table class="styled-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Designação</th>
+                            <th>Num. Serie</th>
+                            <th>Utilizar</th>
+                            <th>Remover</th>
+                        </tr>
+                    </thead>
+
+    <div class="row">
+        {% for device in devices %} 
+              
+       
+                    <tbody>
+                        <tr>
+                            <td><b>{{device[0]}}</b></td>
+                            <td><b>{{device[2]}}</b></td>
+                            <td><b>{{device[1]}}</b></td>
+                            <td><b><a  href="/selecionarDispositivo/{{device[1]}}">
+                                <button class="button2"><b>Selecionar</b></button></b></td>
+                            <td><a  href="/deleteDispositivo/{{device[1]}}">
+                                <button class="button2"><b>X</b></button>
+                            </a></td>
+                        </tr>
+
+                    </tbody>
+               
+
+
+
+
+        {%endfor%} 
+    </table>
+    </div> 
+ </div>
+ {% else %}
+    <div class="galeria" style="text-align: center;"> 
+        <hr>
+            <h1 style="color: white;" ><b>Nao tem nenhum Dispostivo Associado</b></h1>
+        <hr>
+    </div>
+{% endif %}
+
+
+
+
+{% endblock %}

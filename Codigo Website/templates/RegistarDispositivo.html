@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>FOTOBOX360</title>
+{% endblock %}
+
+{% block body %}
+<ul>
+    <li><a href="/main">Home</a></li>
+    <li><a class="active" href="/registarDispositivo">Registar Dispostivo</a></li>
+    <li><a href="/listarDispositivos">Meus Dispostivos</a></li>
+    <li style="padding-left: 73%;"><a  href="/logout"><b>Logout</b></a></li>
+  </ul>
+    <div class="content">
+        <span  style="font-size:xx-large;"> 
+             <h1 style="text-align: center; color:rgb(58, 0, 0); padding-top: 10%;" class="p1">FOTOBOX 360</h1>
+             <b style="padding-left: 39%;">Registe o do seu Dispostivo</b>
+         </span>
+          <div class="form" style="padding-left: 40%; padding-top: 1%;">
+             
+             <form action="/registarDispositivo" method="POST">
+                 <p style="color:rgb(58, 0, 0);"><b>Designação/Nome</b></p>
+                 <input style="width: 33%;" type="text" name="designacao">
+                 <p style="color:rgb(58, 0, 0);"><b>Num. Serie</b></p>
+                 <input style="width: 33%;" type="text" name="nSerie">
+                 <p></p>
+                 <input type="submit" value="Registar Dispostivo">
+             </form>
+           
+                 
+                        
+                
+                
+         </div>
+          
+         
+     </div>
+
+</div>
+{% endblock %}
